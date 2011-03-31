@@ -1,0 +1,19 @@
+<?php
+
+
+class LoginModel {
+
+    function login() {
+
+        echo "logging in\n";
+    }
+
+    function logout() {
+
+        echo "logging out\n";
+    }
+
+}
+
+
+?>

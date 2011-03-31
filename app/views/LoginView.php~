@@ -1,12 +1,25 @@
-<html>
-<head>
-<title>BeerFund</title>
-</head>
+<?php
 
-<body>
-<form name="login" action="index.php" method="get">
-Username: <input type="text" name="user" />
-Password: <input type="password" name="password" />
-<input type="submit" name="submit" value="Submit "/>
-</body>
-</html>
+
+class LoginView {
+
+    function display() {
+        $html = '<html>';
+        $html .= '<head>';
+        $html .= '<title>BeerFund</title>';
+        $html .= '</head>';
+
+        $html .= '<body>';
+        //$html .= "\<form name=\"login\" action=\"index.php\" method=\"get\"\>";
+//     Username: <input type="text" name="user" />
+// Password: <input type="password" name="password" />
+// <input type="submit" name="submit" value="Submit" />
+// </form>
+        $html .= 'foo from LoginView\n';
+        $html .= '</body>';
+        $html .= '</html>';
+        echo "foo  from LoginVeiw\n";
+    }
+
+
+?>

@@ -2,8 +2,12 @@
 
 include_once("../app/controllers/IndexController.php");
 
+session_start();
 $indexController = new IndexController();
 
+echo "starting\n";
 $indexController->invoke();
+echo "stopping\n";
+
 
 ?>
