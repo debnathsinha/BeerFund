@@ -11,9 +11,21 @@ class LoginModel {
     function logout() {
 
         echo "logging out\n";
+        session_destroy();
     }   
 
-    function authenticate() {
+    function authenticate($new_user, $new_password) {
+        session_start();
+        session_register("user");
+        session_register("password");
+        if(!session_is_registered("user")) {
+            $user = $new_user;
+            $_SESSION["user"] = $new_user;
+        }       
+        if(!session_is_registered("password")) {
+            $password = $new_password;
+            $_SESSION["password"] = $new_password;
+        }
         return true;
     }
 

@@ -8,7 +8,6 @@ include_once("../app/views/BeerFundView.php");
 class IndexController {
 
     function IndexController() {
-        echo "constructing controller\n";
         $this->loginModel = new LoginModel();
         $this->beerfundModel = new BeerFundModel();
         $this->loginView = new LoginView();
@@ -43,25 +42,32 @@ class IndexController {
         }
     }
 
-    function tryAuthenticate() {
+    function tryingToAuthenticate() {
         if(isset($_POST["user"]) && isset($_POST["password"])) {
-            var $result = $this->loginModel->authenticate();
-            
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function tryingToLogout() {
+        if(isset($_GET['logout'])) {
+            return true;
+        } else {
+            return false;
         }
     }
     
     function invoke() {
         if(!$this->isAuthenticated()) {
-            if(!$this->tryAuthenticate()) {
+            if(!$this->tryingToAuthenticate()) {
                 $this->loginView->display();
             } else {
-                if($this->loginModel->authenticate()) {
-                    $_SESSION['auth'] = 'true';
-                }
+                $result = $this->loginModel->authenticate($_POST["user"], $_POST["password"]);
             }
         }
-        if(isset($_GET['logout'])) {
-            session_destroy();
+        if($this->tryingToLogout()) {
+            $this->loginModel->logout();
         }
         if($this->isAuthenticated()) {
             $this->beerfundView->display();

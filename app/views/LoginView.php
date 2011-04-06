@@ -16,7 +16,6 @@ class LoginView {
         $html .= '<input type="submit" name="submit" value="Submit" />';
         
         $html .= '</form>';
-        $html .= 'foo from LoginView';
         $html .= '</body>';
         $html .= '</html>';
         echo $html;

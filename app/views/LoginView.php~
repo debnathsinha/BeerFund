@@ -10,16 +10,19 @@ class LoginView {
         $html .= '</head>';
 
         $html .= '<body>';
-        //$html .= "\<form name=\"login\" action=\"index.php\" method=\"get\"\>";
-//     Username: <input type="text" name="user" />
-// Password: <input type="password" name="password" />
-// <input type="submit" name="submit" value="Submit" />
-// </form>
-        $html .= 'foo from LoginView\n';
+        $html .= '<form name="login" action="index.php" method="post">';
+        $html .= 'Username: <input type="text" name="user" />';
+        $html .= 'Password: <input type="password" name="password" />';
+        $html .= '<input type="submit" name="submit" value="Submit" />';
+        
+        $html .= '</form>';
+        $html .= 'foo from LoginView';
         $html .= '</body>';
         $html .= '</html>';
-        echo "foo  from LoginVeiw\n";
+        echo $html;
     }
+
+}
 
 
 ?>
